@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const TodoItem = ({todo}) => {
+const TodoItem = ({ todo }) => {
   return (
-    <div>{todo.title}</div>
-  )
-}
+    <div style={styles.todoItem}>
+      <p>{todo.title}</p>
+    </div>
+  );
+};
 
-export default TodoItem
+const styles = {
+  todoItem: {
+    border: "2px solid #f4f4f4",
+    fontSize: "24px",
+  },
+};
+
+export default TodoItem;

@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <h1>Hello Guru Domba!</h1>
-      // Menambah CSS
+      {/* // Menambah CSS */}
       <div style={styles.container}>
         <h1 style={styles.title}>My Todo List</h1>
         <Todos todos={todos} />

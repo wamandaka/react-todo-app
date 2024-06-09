@@ -1,35 +1,33 @@
 import React from "react";
 
-const TodoItem = ({ todo, toggleCompleted }) => {
-  // Definisikan function getTodoTitleStyle di sini
+const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
   const getTodoTitleStyle = () => {
-    if (todo.completed === true) {
-      return { textDecoration: "line-through" };
-    } else {
-      return { textDecoration: "none" };
-    }
+    return { textDecoration: todo.completed ? "line-through" : "none" };
   };
 
-  const deleteTodo = () => {
-    console.log("deleteTodo function is called");
-  };
-
-  // Definisikan function toggleCompleted di sini
-  // const toggleCompleted = () => {
-  //   console.log("toggleCompleted function is called");
-  // };
   return (
-    <div style={styles.todoItem}>
-      <input
-        type="checkbox"
-        style={styles.checkbox}
-        onChange={() => toggleCompleted(todo.id)}
-      />
-      <p style={getTodoTitleStyle()}>{todo.title}</p>
-      {/* Tambahkan sebuah button di sini */}
-      <button onClick={deleteTodo} style={styles.button}>
-        x
-      </button>
+    <div className="flex justify-center items-center mb-5">
+      <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card-body">
+          <div className="flex justify-between items-center">
+            <input
+              type="checkbox"
+              className="checkbox"
+              checked={todo.completed}
+              onChange={() => toggleCompleted(todo.id)}
+            />
+            <p className="" style={getTodoTitleStyle()}>
+              {todo.title}
+            </p>
+            <button
+              onClick={() => deleteTodo(todo.id)}
+              className="btn btn-circle btn-outline btn-sm hover:bg-red-600"
+            >
+              x
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

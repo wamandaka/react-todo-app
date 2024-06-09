@@ -1,7 +1,5 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+// import "./App.css";
 import Todos from "./components/Todos";
 
 function App() {
@@ -21,11 +19,20 @@ function App() {
       title: "Study React with Ninja Ken",
       completed: false,
     },
+    {
+      id: 4,
+      title: "Have dinner with Supervisor",
+      completed: false,
+    },
+    {
+      id: 5,
+      title: "Have breakfast with Supervisor",
+      completed: false,
+    },
   ]);
 
   console.log(todos);
 
-  // Definisikan toggleCompleted di sini
   const toggleCompleted = (todoId) => {
     const updatedTodos = todos.map((todo) => {
       if (todo.id === todoId) {
@@ -36,14 +43,21 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  const deleteTodo = (todoId) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== todoId);
+    setTodos(updatedTodos);
+  };
+
   return (
     <>
-      <h1>Hello Guru Domba!</h1>
-      {/* // Menambah CSS */}
+      <h1 className="text-center">Hello Guru Domba!</h1>
       <div style={styles.container}>
         <h1 style={styles.title}>My Todo List</h1>
-        {/* Teruskan function toggleCompleted ke component Todos */}
-        <Todos todos={todos} toggleCompleted={toggleCompleted} />
+        <Todos
+          todos={todos}
+          toggleCompleted={toggleCompleted}
+          deleteTodo={deleteTodo}
+        />
       </div>
     </>
   );

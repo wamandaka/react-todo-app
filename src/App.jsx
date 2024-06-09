@@ -19,6 +19,16 @@ function App() {
       title: "Study React with Ninja Ken",
       completed: false,
     },
+    {
+      id: 4,
+      title: "Have dinner with Supervisor",
+      completed: false,
+    },
+    {
+      id: 5,
+      title: "Have breakfast with Supervisor",
+      completed: false,
+    },
   ]);
 
   console.log(todos);

@@ -6,7 +6,7 @@ const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
   };
 
   return (
-    <div className="flex justify-center items-center mb-5">
+    <div className="flex justify-center items-center mb-2">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <div className="flex justify-between items-center">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 // import "./App.css";
 import Todos from "./components/Todos";
+import TodoForm from "./components/TodoForm";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -9,26 +10,26 @@ function App() {
       title: "Finish Progate React Course",
       completed: false,
     },
-    {
-      id: 2,
-      title: "Have lunch with Guru Domba",
-      completed: false,
-    },
-    {
-      id: 3,
-      title: "Study React with Ninja Ken",
-      completed: false,
-    },
-    {
-      id: 4,
-      title: "Have dinner with Supervisor",
-      completed: false,
-    },
-    {
-      id: 5,
-      title: "Have breakfast with Supervisor",
-      completed: false,
-    },
+    // {
+    //   id: 2,
+    //   title: "Have lunch with Guru Domba",
+    //   completed: false,
+    // },
+    // {
+    //   id: 3,
+    //   title: "Study React with Ninja Ken",
+    //   completed: false,
+    // },
+    // {
+    //   id: 4,
+    //   title: "Have dinner with Supervisor",
+    //   completed: false,
+    // },
+    // {
+    //   id: 5,
+    //   title: "Have breakfast with Supervisor",
+    //   completed: false,
+    // },
   ]);
 
   console.log(todos);
@@ -48,11 +49,25 @@ function App() {
     setTodos(updatedTodos);
   };
 
+  const addTodo = (todoTitle) => {
+    if (todoTitle === "") {
+      return;
+    }
+
+    const newTodo = {
+      id: todos.length + 1,
+      title: todoTitle,
+      completed: false,
+    };
+
+    const updatedTodos = todos.concat(newTodo);
+    setTodos(updatedTodos);
+  };
   return (
     <>
-      <h1 className="text-center">Hello Guru Domba!</h1>
       <div style={styles.container}>
         <h1 style={styles.title}>My Todo List</h1>
+        <TodoForm addTodo={addTodo} />
         <Todos
           todos={todos}
           toggleCompleted={toggleCompleted}
